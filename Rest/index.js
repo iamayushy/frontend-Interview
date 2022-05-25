@@ -5,16 +5,16 @@ var loading = false
 const callAPI = helper(better, 1000)
 
 find.addEventListener('input', callAPI)
-function better(){
+function better() {
     content.innerHTML = ''
     callme(find.value)
     loading = true
     show(loading)
-    
+
 }
-function helper(call, delay){
+function helper(call, delay) {
     let timeout
-    return function(){
+    return function () {
         clearTimeout(timeout)
         timeout = setTimeout(() => {
             call()
@@ -24,24 +24,27 @@ function helper(call, delay){
 
 
 
-function callme(call){
-fetch(`https://restcountries.com/v3.1/name/${call}`)
-.then(res => res.json())
-.then(op => {console.log(op)
-itereate(op)})
-.catch(err => dead(call))
+function callme(call) {
+    fetch(`https://restcountries.com/v3.1/name/${call}`)
+        .then(res => res.json())
+        .then(op => {
+            console.log(op)
+            itereate(op)
+        })
+        .catch(err => dead(call))
 }
-function itereate(data){
+function itereate(data) {
     data.forEach(element => {
-        // console.log(element.currencies, element.currencies.symbol)
-        //flag, region, name
+
         const data = element.currencies
         let curr = document.createElement('p')
-        for(let key in data){
+
+
+        for (let key in data) {
             console.log(data[key].name, data[key].symbol) //currency
             curr.innerHTML = ` Currency: ${data[key].name}  ${data[key].symbol}`
         }
-       
+
 
         let img = document.createElement('img')
         img.src = element.flags.png
@@ -53,7 +56,7 @@ function itereate(data){
         pop.innerHTML = `Population ${element.population}`
         let detail = document.createElement('article')
         detail.classList.add('box')
-        
+
         detail.appendChild(img)
         detail.appendChild(name)
         detail.appendChild(continent)
@@ -63,32 +66,27 @@ function itereate(data){
 
         loading = false
         show(loading)
-        
-        
-
-        
-        
     });
 }
-function dead(call){
+function dead(call) {
     loading = false
     show(loading)
-    let err =  document.createElement('div')
+    let err = document.createElement('div')
     err.className = 'err'
-    
-    if(call.length === 0){
+
+    if (call.length === 0) {
         err.innerHTML = 'Search Your Nation'
     }
-    else{
+    else {
         err.innerHTML = "Can't Find Your Search Country"
     }
     content.append(err)
 }
-function show(load){
-    if(load) {
-        loader.style.display='block'
+function show(load) {
+    if (load) {
+        loader.style.display = 'block'
     }
-    else{
-        loader.style.display='none'
+    else {
+        loader.style.display = 'none'
     }
 }
