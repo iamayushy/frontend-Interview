@@ -2,13 +2,27 @@ let content = document.querySelector('.display-box')
 let find = document.querySelector('#find')
 let loader = document.querySelector('.loader')
 var loading = false
-find.addEventListener('change', () => {
+const callAPI = helper(better, 1000)
+
+find.addEventListener('input', callAPI)
+function better(){
     content.innerHTML = ''
     callme(find.value)
     loading = true
     show(loading)
     
-})
+}
+function helper(call, delay){
+    let timeout
+    return function(){
+        clearTimeout(timeout)
+        timeout = setTimeout(() => {
+            call()
+        }, delay)
+    }
+}
+
+
 
 function callme(call){
 fetch(`https://restcountries.com/v3.1/name/${call}`)
