@@ -1,0 +1,13 @@
+.area{
+    margin-top: 4rem;
+    width: 40%;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0 0.3rem;
+    border-radius: 5px;
+}
+@media (max-width: 800px) {
+    .area{
+        width: 80%;
+    }
+}
