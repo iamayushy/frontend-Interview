@@ -1,0 +1,24 @@
+
+body{
+    min-width: 100vw;
+    
+}
+.App{
+   min-width: 100vw;
+}
+
+.tasklist{
+    margin: 2rem;
+    display: flex;
+    gap: 2rem;
+}
+.tasklist > *{
+    flex-basis: 30%;
+}
+
+.todo{
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 5px;
+    padding: 0 0.8rem 0.8rem;
+    box-shadow: 10px 10px 10px whitesmoke;
+}
