@@ -41,7 +41,7 @@ function itereate(data) {
 
 
         for (let key in data) {
-            console.log(data[key].name, data[key].symbol) //currency
+            console.log(data[key].name, data[key].symbol) 
             curr.innerHTML = ` Currency: ${data[key].name}  ${data[key].symbol}`
         }
 

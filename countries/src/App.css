@@ -1,0 +1,14 @@
+.simba{
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.simba > *{
+  flex: 0 1 20%;
+}
+.inp{
+  margin: 0px auto;
+  width: 50%;
+  padding: 3.5rem;
+}

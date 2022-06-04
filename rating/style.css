@@ -1,0 +1,21 @@
+body{
+    background-color: black;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.wbox{
+    width: 100vmin;
+    height: 40vmin;
+    background-color: #111111;
+    display: flex;
+    gap: 1rem;
+    padding: 0.9rem;
+    align-items: center;
+}
+.wbox > *{
+    border: 1px solid whitesmoke;
+    flex: 1 1;
+    height: 100px;
+}
